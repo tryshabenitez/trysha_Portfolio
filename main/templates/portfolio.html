@@ -1,0 +1,465 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trysha Benitez | Portfolio</title>
+
+    <!-- CORRECT CSS PATH -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Fixed Navbar (place OUTSIDE and BEFORE .hero-section) -->
+    <nav class="hero-nav" id="mainNav">
+        <button onclick="scrollToTop(); setActiveNav(this)">HOME</button>
+        <button onclick="scrollToSection('about'); setActiveNav(this)">ABOUT</button>
+        <button onclick="scrollToSection('skills'); setActiveNav(this)">SKILLS</button>
+        <button onclick="scrollToSection('projects'); setActiveNav(this)">PROJECT</button>
+        <button onclick="scrollToSection('resume'); setActiveNav(this)">EDUCATION</button>
+    </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+        ☰
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile Menu Popup -->
+    <div class="mobile-menu-popup" id="mobileMenuPopup">
+        <div class="mobile-menu-header">
+            <span>Options</span>
+            <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+        </div>
+        <button onclick="scrollToTop(); closeMobileMenu()">HOME</button>
+        <button onclick="scrollToSection('about'); closeMobileMenu()">ABOUT</button>
+        <button onclick="scrollToSection('skills'); closeMobileMenu()">SKILLS</button>
+        <button onclick="scrollToSection('projects'); closeMobileMenu()">PROJECT</button>
+        <button onclick="scrollToSection('resume'); closeMobileMenu()">EDUCATION</button>
+    </div>
+
+    <section class="hero-section" id="home">
+
+        <!-- Left Content -->
+        <div class="hero-left">
+
+            <span class="greeting">Hello, I'm</span>
+
+            <h1 class="hero-name">
+                Trysha Rhoy Benitez
+            </h1>
+
+            <div class="hero-socials">
+
+                <div class="touch-style">
+                    GET IN TOUCH
+                    <span>→</span>
+                </div>
+
+                <a href="https://github.com/tryshabenitez" target="_blank">
+                    <img src="{% static 'images/github.png' %}" alt="GitHub">
+                </a>
+
+                <a href="https://www.facebook.com/beniteztrysha/" target="_blank">
+                    <img src="{% static 'images/facebook.png' %}" alt="Facebook">
+                </a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=twisyabenitez@gmail.com" target="_blank" rel="noopener">
+                    <img src="{% static 'images/email.png' %}" alt="Email">
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Center Image -->
+        <div class="hero-image">
+            <img src="{% static 'images/animated_me.png' %}" alt="Trysha">
+        </div>
+
+        <!-- Right Content -->
+        <div class="hero-right">
+
+            <span class="role-small">Aspiring</span>
+
+            <h2 class="role-main">FULL-STACK</h2>
+
+            <h3 class="role-sub">Web Developer</h3>
+
+            <a href="{% static 'files/Trysha_Benitez_CV.pdf' %}"
+                class="cv-btn"
+                download>
+                <span>Download CV</span>
+                <img src="{% static 'images/cv.png' %}" alt="CV Icon">
+            </a>
+        </div>
+
+    </section>
+
+    <section id="about" class="about-section">
+
+        <div class="about-container">
+
+            <!-- LEFT COLUMN (title + image stacked) -->
+            <div class="left-column">
+                <div class="about-title-left">
+                    <span class="about-label">
+                        ABOUT ME
+                    </span>
+                    <h2>
+                        Who is Trysha?
+                    </h2>
+                </div>
+
+                <div class="about-image">
+                    <img src="{% static 'images/about-me.png' %}" alt="Trysha Benitez">
+                </div>
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="about-text">
+                <h2 class="about-heading">
+                    Aspiring <span>Software Developer</span> from Philippines
+                </h2>
+
+                <p class="subtitle">
+                    In my first year of studying Computer Engineering Technology, I often felt out of place, 
+                    I feel like I belong to somwhre else, but everything clicked during a coding lab when I solved my first logic problem on our laboratory task. 
+                    The joy that I felt was so unreal. I mean, If I look back, it was just a basic if else condition. That moment sparked my interest in programming, and since then, 
+                    I’ve been excited to create and learn more with code.
+                </p>
+
+                <div class="about-info">
+                    <p><b><span>➤ </span>Phone:</b> +63991-8283-459</p>
+                    <p><b><span>➤ </span>Program:</b> Computer Engineering Technology</p>
+                    <p><b><span>➤ </span>City:</b> Cavite</p>
+                    <p><b><span>➤ </span>E-mail:</b> twisyabenitez@gmail.com</p>
+                </div>
+
+                <p class="about-desc">
+                    If I were to illustrate it, I have a love-hate relationship with coding. 
+                    I sometimes struggle with not knowing everything, spending hours debugging, 
+                    or trying to understand the full flow of a software or project I’m working on. 
+                    But the love comes every time I finish a task, the satisfaction of seeing a well-functioning output. 
+                    Even something as simple as a button with a highlighted hover can make me proud of myself. 
+                    That moment realizing I turned an idea into a working result makes me want to keep learning and growing as a programmer.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="skills" class="skills-section">
+
+        <!-- TITLE -->
+        <div class="skills-title">
+            <span class="skills-label">SKILLS</span>
+            <h2>
+                Trysha's <span>Technical Skills</span>
+            </h2>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/python.png' %}" alt="">
+                <h4>Python</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:90%"></div>
+                </div>
+
+                <span>90%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/html.png' %}" alt="">
+                <h4>HTML</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:95%"></div>
+                </div>
+
+                <span>95%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/css.png' %}" alt="">
+                <h4>CSS</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:90%"></div>
+                </div>
+
+                <span>90%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/c.png' %}" alt="">
+                <h4>C++</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:85%"></div>
+                </div>
+
+                <span>85%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/database.png' %}" alt="">
+                <h4>DATABASE</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:95%"></div>
+                </div>
+
+                <span>95%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/deploy.png' %}" alt="">
+                <h4>DEPLOYEMENT</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:95%"></div>
+                </div>
+
+                <span>95%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/dfd.png' %}" alt="">
+                <h4>DATA FLOW DIAGRAM</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:99%"></div>
+                </div>
+
+                <span>99%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/flowchart.png' %}" alt="">
+                <h4>FLOWCHART</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:99%"></div>
+                </div>
+
+                <span>99%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/github.png' %}" alt="">
+                <h4>GITHUB</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:93%"></div>
+                </div>
+
+                <span>93%</span>
+            </div>
+
+            <div class="skill-card">
+                <img src="{% static 'images/skills/microsoft.png' %}" alt="">
+                <h4>MS OFFICE</h4>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width:95%"></div>
+                </div>
+
+                <span>95%</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="projects" class="projects-section">
+        <div class="projects-header">
+            <span class="projects-label">PROJECTS</span>
+            <h2>
+                Build by <span>Trysha</span>
+            </h2>
+            <span class="year">Collection of Projects, Research, and Team Achievements • 2022 – Present</span>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/liraya.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>TUPCLiraya</h3>
+                <p><span class="subtitle-tag">Python</span> <span class="subtitle-tag">Django</span>
+                <span class="subtitle-tag">Mysql</span> <span class="subtitle-tag">Google Vision API</span>
+                <span class="subtitle-tag">HTML</span> <span class="subtitle-tag">CSS</span>
+                <span class="subtitle-tag">Bootsrap</span> <span class="subtitle-tag">OCR</span>
+                <span class="subtitle-tag">Website</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/findrary.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Findray</h3>
+                <p><span class="subtitle-tag">kotlin </span> <span class="subtitle-tag">Firebase</span> <span class="subtitle-tag">Mobile Application</span><span class="subtitle-tag">Google Auth</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/bayanihire.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>BayaniHire</h3>
+                <p><span class="subtitle-tag">Python</span> <span class="subtitle-tag">Django</span>
+                <span class="subtitle-tag">HTML</span> <span class="subtitle-tag">CSS</span>
+                <span class="subtitle-tag">Web Developments</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/mobcam.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Camera</h3>
+                 <p><span class="subtitle-tag">kotlin </span> <span class="subtitle-tag">Mobile App</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/quizmob.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Quiz Bee</h3>
+                <p><span class="subtitle-tag">kotlin </span> <span class="subtitle-tag">Mobile App</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/robotics.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Robotic Color Seperator</h3>
+                <p><span class="subtitle-tag">C++</span> <span class="subtitle-tag">Arduino Uno</span>
+                <span class="subtitle-tag">Robotics</span> <span class="subtitle-tag">Servo Motors</span>
+                <span class="subtitle-tag">TCS3200</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/mobinv.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Valentines Invitation Card</h3>
+                <p><span class="subtitle-tag">Python</span> <span class="subtitle-tag">Qt Designer</span>
+                <p><span class="subtitle-tag">Pygame</span></p>
+            </div>
+
+            <div class="project-card">
+                <video controls>
+                    <source src="{% static 'videos/lyricsterminal.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Tiktok Trend-Lyrics Display</h3>
+                <p><span class="subtitle-tag">Python</span></p></p>
+            </div>
+
+            <!-- Add more project cards as needed -->
+
+        </div>
+    </section>
+        
+    <section id="resume" class="resume-section">
+        <div class="resume-header">
+            <span class="resume-label">EDUCATION</span>
+            <h2 class="resume-heading">Trysha's <span>Academic Journey</span></h2>
+        </div>
+
+        <!-- ✅ NEW: Two-column grid layout, no Bootstrap -->
+        <div class="resume-layout">
+
+            <!-- EDUCATION COLUMN -->
+            <div class="resume-column">
+                <h3 class="section-title"> My Education</h3>
+
+                <div class="timeline-card">
+                    <span class="year">2022 - Present</span>
+                    <h4>Technological University of the Philippines – Cavite</h4>
+                    <p>Bachelor of Engineering Technology, Major in Computer Engineering Technology</p>
+                    <ul>
+                        <li>3rd Year Second Semester Dean's Lister</li>
+                        <li>2nd Year First Semester Dean's Lister</li>
+                        <li>Vice President – ACTS TUPC</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-card">
+                    <span class="year">2020 - 2022</span>
+                    <h4>Philippine Christian University</h4>
+                    <p>STEM Strand</p>
+                    <ul>
+                        <li>Graduated with High Honors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE COLUMN -->
+            <div class="resume-column">
+                <h3 class="section-title">My Experience</h3>
+
+                <div class="timeline-card">
+                    <span class="year">2026</span>
+                    <h4>Analog Decices Inc.</h4>
+                    <p>Test Product Technician Intern</p>
+                    <ul>
+                        <li>Analyzed data, device failures, 
+                        and yield performance using different system to support troubleshooting 
+                        efforts and identify potential production issues.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-card">
+                    <span class="year">2026</span>
+                    <h4>2nd Conference on Technology & Research for National Development & Sustainability</h4>
+                    <p>Thesis Research Presenter.</p>
+                    <ul>
+                        <li>Presented the integration of OCR nad Google Cloud Vision API for
+                        automated image-to-text extraction, streghten its application in imroving library resources accessibility </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CERTIFICATES BELOW -->
+        <div class="resume-card">
+            <h3>Certificates &amp; Seminars</h3>
+            <div class="certificate-grid">
+                <img src="{% static 'images/cert1.png' %}" alt="Certificate 1">
+                <img src="{% static 'images/cert2.png' %}" alt="Certificate 2">
+                <img src="{% static 'images/cert3.png' %}" alt="Certificate 3">
+                <img src="{% static 'images/cert4.png' %}" alt="Certificate 4">
+                <img src="{% static 'images/cert5.png' %}" alt="Certificate 5">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CORRECT JS PATH -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
